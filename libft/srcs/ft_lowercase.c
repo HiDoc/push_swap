@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_lowercase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/22 13:06:41 by fmadura           #+#    #+#             */
-/*   Updated: 2017/12/22 14:55:10 by fmadura          ###   ########.fr       */
+/*   Created: 2017/11/20 17:42:46 by fmadura           #+#    #+#             */
+/*   Updated: 2017/11/20 17:46:15 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-static void	push(t_stack x, t_stack y)
+void	ft_lowercase(char *s)
 {
-	t_elem *tmp;
+	size_t	count;
 
-	if (y.first != NULL)
-	{
-		tmp = y.first;
-		y.first = y.first->next;
-		tmp->next = x.first;
-		x.first = tmp;
-		y.size -= 1;
-		x.size += 1;	
-	}
-}
-void		push_a(t_stack a, t_stack b)
-{
-	push(a, b);
-}
-void		push_b(t_stack b, t_stack a)
-{
-	push(b, a);
+	count = 0;
+	if (s != NULL)
+		while (s[count])
+		{
+			s[count] = ft_tolower(s[count]);
+			count++;
+		}
 }

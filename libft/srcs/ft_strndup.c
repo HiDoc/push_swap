@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/22 13:06:41 by fmadura           #+#    #+#             */
-/*   Updated: 2017/12/22 14:55:10 by fmadura          ###   ########.fr       */
+/*   Created: 2017/11/20 19:08:11 by fmadura           #+#    #+#             */
+/*   Updated: 2017/11/21 20:49:33 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-static void	push(t_stack x, t_stack y)
+char	*ft_strndup(const char *s1, size_t n)
 {
-	t_elem *tmp;
+	size_t	count;
+	char	*dup;
 
-	if (y.first != NULL)
+	count = 0;
+	if ((dup = (char *)malloc(sizeof(char) * (n + 1))) == NULL)
+		return (NULL);
+	while (count < n)
 	{
-		tmp = y.first;
-		y.first = y.first->next;
-		tmp->next = x.first;
-		x.first = tmp;
-		y.size -= 1;
-		x.size += 1;	
+		dup[count] = s1[count];
+		count++;
 	}
-}
-void		push_a(t_stack a, t_stack b)
-{
-	push(a, b);
-}
-void		push_b(t_stack b, t_stack a)
-{
-	push(b, a);
+	dup[count] = '\0';
+	return (dup);
 }

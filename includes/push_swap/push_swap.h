@@ -6,7 +6,7 @@
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:47:08 by fmadura           #+#    #+#             */
-/*   Updated: 2017/12/22 14:37:20 by fmadura          ###   ########.fr       */
+/*   Updated: 2017/12/22 14:54:06 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 typedef struct	s_elem
 {
 	int				value;
-	struct s_list	*next;
+	struct s_elem	*next;
 }				t_elem;
 t_elem			*new_elem(int value);
 t_elem			*add_elem(t_elem *list, int value);

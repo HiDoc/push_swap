@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/22 13:06:41 by fmadura           #+#    #+#             */
-/*   Updated: 2017/12/22 14:55:10 by fmadura          ###   ########.fr       */
+/*   Created: 2017/11/09 14:36:18 by fmadura           #+#    #+#             */
+/*   Updated: 2017/11/25 16:01:51 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-static void	push(t_stack x, t_stack y)
+char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n)
 {
-	t_elem *tmp;
+	size_t	count;
+	size_t	len;
 
-	if (y.first != NULL)
+	len = ft_strlen(s1);
+	count = 0;
+	while (count < n && s2[count])
 	{
-		tmp = y.first;
-		y.first = y.first->next;
-		tmp->next = x.first;
-		x.first = tmp;
-		y.size -= 1;
-		x.size += 1;	
+		s1[count + len] = s2[count];
+		count++;
 	}
-}
-void		push_a(t_stack a, t_stack b)
-{
-	push(a, b);
-}
-void		push_b(t_stack b, t_stack a)
-{
-	push(b, a);
+	s1[count + len] = '\0';
+	return (s1);
 }

@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/22 13:06:41 by fmadura           #+#    #+#             */
-/*   Updated: 2017/12/22 14:55:10 by fmadura          ###   ########.fr       */
+/*   Created: 2017/11/09 14:23:45 by fmadura           #+#    #+#             */
+/*   Updated: 2017/11/21 21:45:07 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-static void	push(t_stack x, t_stack y)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	t_elem *tmp;
+	unsigned char	*s1;
 
-	if (y.first != NULL)
+	s1 = (unsigned char *)s;
+	while (n--)
 	{
-		tmp = y.first;
-		y.first = y.first->next;
-		tmp->next = x.first;
-		x.first = tmp;
-		y.size -= 1;
-		x.size += 1;	
+		if (*s1 == (unsigned char)c)
+			return (s1);
+		s1++;
 	}
-}
-void		push_a(t_stack a, t_stack b)
-{
-	push(a, b);
-}
-void		push_b(t_stack b, t_stack a)
-{
-	push(b, a);
+	return (NULL);
 }

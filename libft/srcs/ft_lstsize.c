@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/22 13:06:41 by fmadura           #+#    #+#             */
-/*   Updated: 2017/12/22 14:55:10 by fmadura          ###   ########.fr       */
+/*   Created: 2017/11/20 19:24:04 by fmadura           #+#    #+#             */
+/*   Updated: 2017/11/20 19:26:46 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-static void	push(t_stack x, t_stack y)
+size_t	ft_lstsize(t_list **alst)
 {
-	t_elem *tmp;
+	size_t	count;
 
-	if (y.first != NULL)
-	{
-		tmp = y.first;
-		y.first = y.first->next;
-		tmp->next = x.first;
-		x.first = tmp;
-		y.size -= 1;
-		x.size += 1;	
-	}
-}
-void		push_a(t_stack a, t_stack b)
-{
-	push(a, b);
-}
-void		push_b(t_stack b, t_stack a)
-{
-	push(b, a);
+	count = 0;
+	if (alst != NULL)
+		while (alst[count]->next != NULL)
+			count++;
+	return (count);
 }

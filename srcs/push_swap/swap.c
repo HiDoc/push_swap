@@ -6,7 +6,7 @@
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:05:06 by fmadura           #+#    #+#             */
-/*   Updated: 2017/12/22 14:28:02 by fmadura          ###   ########.fr       */
+/*   Updated: 2017/12/22 14:54:13 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ static void	swap(t_stack x)
 	{
 		if (x.size == 2)
 		{
-			tmp = x.first;
-			x.first = x.last;
-			x.last = tmp;
-			x.last->next = NULL;
-			x.first->next = x.last;
+			tmp = (x.first);
+			(x.first) = (x.last);
+			(x.last) = tmp;
+			(x.last)->next = NULL;
+			(x.first)->next = (x.last);
 		}
 		else
 		{

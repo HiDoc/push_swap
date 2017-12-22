@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/22 13:41:43 by fmadura           #+#    #+#             */
-/*   Updated: 2017/12/22 14:55:40 by fmadura          ###   ########.fr       */
+/*   Created: 2017/11/09 14:14:12 by fmadura           #+#    #+#             */
+/*   Updated: 2017/11/29 11:47:31 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_stack	*new_stack(char **tab)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	t_stack *new;
-	t_elem	*tmp;
-	int 	count;
+	size_t	s1len;
+	size_t	s2len;
+	size_t	count;
+	char	*new;
 
-	if ((new = (t_stack *)malloc(sizeof(t_stack))) == NULL)
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	s1len = ft_strlen(s1);
+	s2len = ft_strlen(s2);
+	if ((new = (char *)malloc(s1len + s2len + 1)) == NULL)
 		return (NULL);
 	count = 0;
-	new->first = NULL;
-	new->last = NULL;
-	if (tab[count])
+	while (s1[count])
 	{
-		tmp = new_elem(ft_atoi(tab[count]));
-		new->first = tmp;
+		new[count] = s1[count];
 		count++;
 	}
-	while (tab[count])
+	count = 0;
+	while (s2[count])
 	{
-		tmp = add_elem(tmp, ft_atoi(tab[count]));
+		new[s1len + count] = s2[count];
 		count++;
 	}
-	if (tab[0] && tab[1])
-		new->last = tmp;
-	new->size = count;
+	new[s1len + s2len] = '\0';
 	return (new);
 }

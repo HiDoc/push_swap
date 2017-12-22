@@ -1,6 +1,7 @@
 SRC_PATH = ./srcs/
 OBJ_PATH = ./objs/
-INC_PATH = ./includes/ \
+INC_PATH = ./includes/push_swap \
+		   ./includes/checker \
 		   ./libft/includes/
 
 NAME1 = push_swap
@@ -33,7 +34,7 @@ OBJ2 = $(addprefix $(OBJ_PATH)$(NAME2)/, $(OBJ_NAME2))
 
 INC1 = $(addprefix -I, $(INC_PATH))
 INC2 = $(addprefix -I, $(INC_PATH))
-LIB = -L ./libft -lft -lmlx 
+LIB = -L ./libft -lft
 
 .PHONY : all clean fclean re
 
@@ -55,13 +56,13 @@ lib :
 	@make -C ./libft
 	@echo "**************************************"
 	
-$(OBJ_PATH)/$(NAME1)%.o: $(SRC_PATH)/$(NAME1)%.c
+$(OBJ_PATH)$(NAME1)/%.o: $(SRC_PATH)$(NAME1)/%.c
 	@echo "Compiling files into binaries.."
 	@$(CC) $(CFLAGS) $(INC1) -o $@ -c $<
 	
 $(OBJ_PATH)/$(NAME1)%.o: $(SRC_PATH)/$(NAME1)%.c
 	@echo "Compiling files into binaries.."
-	@$(CC) $(CFLAGS) $(INC1) -o $@ -c $<
+	@$(CC) $(CFLAGS) $(INC2) -o $@ -c $<
 
 clean:
 	@echo "**************************************"

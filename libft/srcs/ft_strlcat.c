@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/22 13:06:41 by fmadura           #+#    #+#             */
-/*   Updated: 2017/12/22 14:55:10 by fmadura          ###   ########.fr       */
+/*   Created: 2017/11/09 14:34:12 by fmadura           #+#    #+#             */
+/*   Updated: 2017/11/12 18:35:02 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-static void	push(t_stack x, t_stack y)
+size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t size)
 {
-	t_elem *tmp;
+	size_t	count;
+	size_t	len;
 
-	if (y.first != NULL)
+	len = ft_strlen(dst);
+	count = 0;
+	if (size < len)
+		return (ft_strlen(src) + size);
+	while (size - len > count + 1 && size > count + 1 && src[count])
 	{
-		tmp = y.first;
-		y.first = y.first->next;
-		tmp->next = x.first;
-		x.first = tmp;
-		y.size -= 1;
-		x.size += 1;	
+		dst[count + len] = src[count];
+		count++;
 	}
-}
-void		push_a(t_stack a, t_stack b)
-{
-	push(a, b);
-}
-void		push_b(t_stack b, t_stack a)
-{
-	push(b, a);
+	dst[count + len] = '\0';
+	return (ft_strlen(src) + len);
 }

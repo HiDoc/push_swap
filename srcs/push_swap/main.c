@@ -6,7 +6,7 @@
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:11:31 by fmadura           #+#    #+#             */
-/*   Updated: 2017/12/22 14:34:26 by fmadura          ###   ########.fr       */
+/*   Updated: 2017/12/22 14:51:17 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int		main(int argc, char **argv)
 {
-	void(argc);
-	void(argv);
-
+	(void)argc;
+	(void)argv;
 	return (0);
 }

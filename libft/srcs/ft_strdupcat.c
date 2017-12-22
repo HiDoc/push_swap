@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   ft_strdupcat.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/22 13:41:43 by fmadura           #+#    #+#             */
-/*   Updated: 2017/12/22 14:55:40 by fmadura          ###   ########.fr       */
+/*   Created: 2017/11/25 15:53:30 by fmadura           #+#    #+#             */
+/*   Updated: 2017/11/25 16:09:47 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_stack	*new_stack(char **tab)
+char	*ft_strdupcat(const char *s1, const char *s2)
 {
-	t_stack *new;
-	t_elem	*tmp;
-	int 	count;
+	size_t	len;
+	size_t	count;
+	size_t	count2;
+	char	*dupcat;
 
-	if ((new = (t_stack *)malloc(sizeof(t_stack))) == NULL)
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	len = ft_strlen(s1) + ft_strlen(s2);
+	if ((dupcat = ft_strnew(len)) == NULL)
 		return (NULL);
 	count = 0;
-	new->first = NULL;
-	new->last = NULL;
-	if (tab[count])
+	count2 = 0;
+	while (s1[count])
 	{
-		tmp = new_elem(ft_atoi(tab[count]));
-		new->first = tmp;
+		dupcat[count] = s1[count];
 		count++;
 	}
-	while (tab[count])
+	while (s2[count2])
 	{
-		tmp = add_elem(tmp, ft_atoi(tab[count]));
-		count++;
+		dupcat[count + count2] = s2[count2];
+		count2++;
 	}
-	if (tab[0] && tab[1])
-		new->last = tmp;
-	new->size = count;
-	return (new);
+	return (dupcat);
 }

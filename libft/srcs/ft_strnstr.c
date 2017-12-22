@@ -1,47 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reve.c                                             :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/22 13:09:34 by fmadura           #+#    #+#             */
-/*   Updated: 2017/12/22 14:57:29 by fmadura          ###   ########.fr       */
+/*   Created: 2017/11/09 14:43:41 by fmadura           #+#    #+#             */
+/*   Updated: 2017/11/20 17:13:49 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-static void	reve(t_stack x)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	t_elem	*tmp;
-	int 	count;
+	size_t	count;
 
-	if (x.size > 1)
-	{
-		count = 0;
-		tmp = x.first;
-		while (count < (int)x.size - 1)
+	count = 0;
+	if (needle[0] == '\0')
+		return ((char *)haystack);
+	else
+		while (haystack[count] && len > count)
 		{
-			tmp = tmp->next;
+			if (ft_strncmp(&haystack[count], needle, ft_strlen(needle)) == 0)
+			{
+				return (count + ft_strlen(needle) > len ? NULL :
+						(char *)&haystack[count]);
+			}
 			count++;
 		}
-		x.last->next = x.first;
-		tmp->next = NULL;
-		x.first = x.last;
-		x.last = tmp;
-	}
-}
-void		reve_a(t_stack a)
-{
-	reve(a);
-}
-void		reve_b(t_stack b)
-{
-	reve(b);
-}
-void		reve_r(t_stack a, t_stack b)
-{
-	reve(a);
-	reve(b);
+	return (NULL);
 }
