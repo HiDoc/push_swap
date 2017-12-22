@@ -13,18 +13,23 @@ complete = @echo "\033[92mComplete\033[0m"
 cleaning = @echo "\033[36mCleaning complete\033[0m"
 
 SRC_NAME1 = main.c \
-			get_next_line.c \
+			swap.c \
+			push.c \
+			elem.c \
+			stack.c \
+			reve.c \
+			rota.c
 
 SRC_NAME2 =
 
 OBJ_NAME1 = $(SRC_NAME1:.c=.o)
 OBJ_NAME2 = $(SRC_NAME2:.c=.o)
 
-SRC1 = $(addprefix $(SRC_PATH)/$(NAME1), $(SRC_NAME1))
-OBJ1 = $(addprefix $(OBJ_PATH)/$(NAME1), $(OBJ_NAME1))
+SRC1 = $(addprefix $(SRC_PATH)$(NAME1)/, $(SRC_NAME1))
+OBJ1 = $(addprefix $(OBJ_PATH)$(NAME1)/, $(OBJ_NAME1))
 
-SRC2 = $(addprefix $(SRC_PATH)/$(NAME2), $(SRC_NAME2))
-OBJ2 = $(addprefix $(OBJ_PATH)/$(NAME2), $(OBJ_NAME2))
+SRC2 = $(addprefix $(SRC_PATH)$(NAME2)/, $(SRC_NAME2))
+OBJ2 = $(addprefix $(OBJ_PATH)$(NAME2)/, $(OBJ_NAME2))
 
 INC1 = $(addprefix -I, $(INC_PATH))
 INC2 = $(addprefix -I, $(INC_PATH))
