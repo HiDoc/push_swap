@@ -6,13 +6,14 @@
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:47:08 by fmadura           #+#    #+#             */
-/*   Updated: 2017/12/22 14:54:06 by fmadura          ###   ########.fr       */
+/*   Updated: 2018/01/07 18:37:09 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "libft.h"
+# include <stdio.h>
 
 typedef struct	s_elem
 {
@@ -28,19 +29,20 @@ typedef struct	s_stack
 	t_elem			*last;
 	size_t			size;
 }				t_stack;
-t_stack			*new_stack(char **tab);
+t_stack			*stack_new(void);
+void			stack_print(t_stack *s);
 
-void			swap_a(t_stack a);
+void			swap_a(t_stack *a);
 void			rota_a(t_stack a);
-void			reve_a(t_stack a);
+t_stack			*reve_a(t_stack *a);
 
-void			swap_b(t_stack b);
+void			swap_b(t_stack *b);
 void			rota_b(t_stack b);
-void			reve_b(t_stack b);
+void			reve_b(t_stack *b);
 
 void			push_a(t_stack a, t_stack b);
 void			push_b(t_stack b, t_stack a);
-void			swap_s(t_stack a, t_stack b);
+void			swap_s(t_stack *a, t_stack *b);
 void			rota_r(t_stack a, t_stack b);
-void			reve_r(t_stack a, t_stack b);
+void			reve_r(t_stack *a, t_stack *b);
 #endif

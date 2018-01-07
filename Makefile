@@ -38,7 +38,7 @@ LIB = -L ./libft -lft
 
 .PHONY : all clean fclean re
 
-all: $(NAME1) $(NAME2)
+all: $(NAME1)
 	$(complete)
 
 $(NAME1): $(OBJ1) lib

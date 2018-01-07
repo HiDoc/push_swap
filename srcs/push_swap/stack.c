@@ -5,37 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/22 13:41:43 by fmadura           #+#    #+#             */
-/*   Updated: 2017/12/22 14:55:40 by fmadura          ###   ########.fr       */
+/*   Created: 2018/01/07 16:22:50 by fmadura           #+#    #+#             */
+/*   Updated: 2018/01/07 18:23:06 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*new_stack(char **tab)
+t_stack *stack_new(void)
 {
-	t_stack *new;
-	t_elem	*tmp;
-	int 	count;
+	t_stack	*new;
 
 	if ((new = (t_stack *)malloc(sizeof(t_stack))) == NULL)
 		return (NULL);
-	count = 0;
 	new->first = NULL;
 	new->last = NULL;
-	if (tab[count])
-	{
-		tmp = new_elem(ft_atoi(tab[count]));
-		new->first = tmp;
-		count++;
-	}
-	while (tab[count])
-	{
-		tmp = add_elem(tmp, ft_atoi(tab[count]));
-		count++;
-	}
-	if (tab[0] && tab[1])
-		new->last = tmp;
-	new->size = count;
+	new->size = 0;
 	return (new);
+}
+
+void	stack_print(t_stack *s)
+{
+	t_elem	*tmp;
+
+	tmp = s->first;
+	while (tmp != NULL)
+	{
+		ft_putnbr(tmp->value);
+		tmp = tmp->next;
+		ft_putchar('\n');
+	}
 }

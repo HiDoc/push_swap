@@ -6,41 +6,39 @@
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:09:34 by fmadura           #+#    #+#             */
-/*   Updated: 2017/12/22 14:57:29 by fmadura          ###   ########.fr       */
+/*   Updated: 2018/01/07 18:31:59 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	reve(t_stack x)
+static t_stack	*reve(t_stack *x)
 {
-	t_elem	*tmp;
-	int 	count;
+	t_elem	*first;
 
-	if (x.size > 1)
+	first = NULL;
+	if (x->size > 2)
 	{
-		count = 0;
-		tmp = x.first;
-		while (count < (int)x.size - 1)
-		{
-			tmp = tmp->next;
-			count++;
-		}
-		x.last->next = x.first;
-		tmp->next = NULL;
-		x.first = x.last;
-		x.last = tmp;
+		x->first[x->size - 2].next = NULL;
+		x->last->next = x->first;	
+		x->first = x->last;
 	}
+	else
+		swap_a(*x);
+	return (x);
 }
-void		reve_a(t_stack a)
+
+t_stack		*reve_a(t_stack *a)
 {
-	reve(a);
+	return (reve(a));
 }
-void		reve_b(t_stack b)
+
+void		reve_b(t_stack *b)
 {
 	reve(b);
 }
-void		reve_r(t_stack a, t_stack b)
+
+void		reve_r(t_stack *a, t_stack *b)
 {
 	reve(a);
 	reve(b);
