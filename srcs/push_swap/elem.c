@@ -6,7 +6,7 @@
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:12:13 by fmadura           #+#    #+#             */
-/*   Updated: 2017/12/22 14:37:12 by fmadura          ###   ########.fr       */
+/*   Updated: 2018/01/08 13:19:36 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_elem	*new_elem(int value)
 		return (NULL);
 	new->value = value;
 	new->next = NULL;
+	new->prev = NULL;
 	return (new);
 }
 

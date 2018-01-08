@@ -6,13 +6,13 @@
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:05:06 by fmadura           #+#    #+#             */
-/*   Updated: 2018/01/07 18:51:53 by fmadura          ###   ########.fr       */
+/*   Updated: 2018/01/08 13:33:30 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_stack	*swap(t_stack *x)
+static void	swap(t_stack *x)
 {
 	t_elem	*first;
 	t_elem	*second;
@@ -23,11 +23,13 @@ static t_stack	*swap(t_stack *x)
 	{
 		first = x->first;
 		second = first->next;
+		second->next->prev = first;
 		first->next = second->next;
+		first->prev = second;
 		second->next = first;
+		second->prev = NULL;
 		x->first = second;
 	}
-	return (x);
 }
 
 void		swap_a(t_stack *a)

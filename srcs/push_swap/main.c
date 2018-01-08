@@ -6,7 +6,7 @@
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:11:31 by fmadura           #+#    #+#             */
-/*   Updated: 2018/01/07 18:45:01 by fmadura          ###   ########.fr       */
+/*   Updated: 2018/01/08 13:49:11 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,42 @@ int		main(int argc, char **argv)
 		while (count < argc)
 		{
 			tmp->next = new_elem(ft_atoi(argv[count]));
+			tmp->next->prev = tmp;
 			tmp = tmp->next;
 			(s1->size)++;
 			count++;
 		}
 		tmp->next = NULL;
 		s1->last = tmp;
+		
+		ft_putendl("stack 1 :");
 		stack_print(s1);
-		ft_putchar('\n');
-		reve_a(s1);
+		
+		reve_a(s1);	
 		ft_putendl("\nafter rev");
 		stack_print(s1);
-		ft_putendl("\nafter swap");
+		
 		swap_a(s1);
+		ft_putendl("\nafter swap");
 		stack_print(s1);
-	}
+		
+		rota_a(s1);
+		ft_putendl("\nafter rota");
+		stack_print(s1);
+		
+		push_a(s2, s1);
+		push_a(s2, s1);
+		push_a(s2, s1);
+		push_a(s1, s2);
+		push_a(s1, s2);
+		push_a(s1, s2);
+		swap_a(s1);
+		reve_a(s1);
+		ft_putendl("\nafter push");
+		ft_putendl("\nstack 1 :");
+		stack_print(s1);
+		ft_putendl("\nstack 2 :");
+		stack_print(s2);
+}
 	return (0);
 }
