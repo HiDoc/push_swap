@@ -6,7 +6,7 @@
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:07:53 by fmadura           #+#    #+#             */
-/*   Updated: 2018/01/08 13:34:55 by fmadura          ###   ########.fr       */
+/*   Updated: 2018/01/08 15:23:44 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,17 @@ static void	rota(t_stack *x)
 		x->last = tmp;
 	}
 }
+
 void		rota_a(t_stack *a)
 {
 	rota(a);
 }
+
 void		rota_b(t_stack *b)
 {
 	rota(b);
 }
+
 void		rota_r(t_stack *a, t_stack *b)
 {
 	rota(a);

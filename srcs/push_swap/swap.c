@@ -6,7 +6,7 @@
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:05:06 by fmadura           #+#    #+#             */
-/*   Updated: 2018/01/08 13:33:30 by fmadura          ###   ########.fr       */
+/*   Updated: 2018/01/08 15:25:19 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void		swap_b(t_stack *b)
 {
 	swap(b);
 }
+
 void		swap_s(t_stack *a, t_stack *b)
 {
 	swap(a);

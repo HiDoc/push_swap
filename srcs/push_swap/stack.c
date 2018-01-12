@@ -6,13 +6,13 @@
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 16:22:50 by fmadura           #+#    #+#             */
-/*   Updated: 2018/01/07 18:23:06 by fmadura          ###   ########.fr       */
+/*   Updated: 2018/01/08 15:26:01 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *stack_new(void)
+t_stack	*stack_new(void)
 {
 	t_stack	*new;
 

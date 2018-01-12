@@ -6,7 +6,7 @@
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:12:13 by fmadura           #+#    #+#             */
-/*   Updated: 2018/01/08 13:19:36 by fmadura          ###   ########.fr       */
+/*   Updated: 2018/01/08 15:23:28 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_elem	*add_elem(t_elem *list, int value)
 	{
 		if (list)
 			list->next = new;
-		list = new;	
+		list = new;
 	}
 	return (list);
 }

@@ -6,7 +6,7 @@
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:06:41 by fmadura           #+#    #+#             */
-/*   Updated: 2018/01/08 13:54:49 by fmadura          ###   ########.fr       */
+/*   Updated: 2018/01/08 15:25:10 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	push(t_stack *x, t_stack *y)
 		push_y(y);
 		push_x(tmp, x);
 		y->size -= 1;
-		x->size += 1;	
+		x->size += 1;
 	}
 }
 
