@@ -6,7 +6,7 @@
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:47:08 by fmadura           #+#    #+#             */
-/*   Updated: 2018/01/08 13:18:51 by fmadura          ###   ########.fr       */
+/*   Updated: 2018/01/15 15:55:56 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct	s_stack
 	size_t			size;
 }				t_stack;
 t_stack			*stack_new(void);
-void			stack_print(t_stack *s);
+void			stack_print(t_stack *s, t_stack *s2);
 
 void			swap_a(t_stack *a);
 void			rota_a(t_stack *a);
@@ -46,4 +46,7 @@ void			push_b(t_stack *b, t_stack *a);
 void			swap_s(t_stack *a, t_stack *b);
 void			rota_r(t_stack *a, t_stack *b);
 void			reve_r(t_stack *a, t_stack *b);
+
+int				is_sorted(t_stack *a);
+int				cmp_elem(t_elem *e, t_elem *e2);
 #endif

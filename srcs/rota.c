@@ -1,38 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   rota.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/07 16:22:50 by fmadura           #+#    #+#             */
-/*   Updated: 2018/01/08 15:26:01 by fmadura          ###   ########.fr       */
+/*   Created: 2017/12/22 13:07:53 by fmadura           #+#    #+#             */
+/*   Updated: 2018/01/15 16:00:06 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*stack_new(void)
+static void	rota(t_stack *x)
 {
-	t_stack	*new;
+	t_elem *tmp;
 
-	if ((new = (t_stack *)malloc(sizeof(t_stack))) == NULL)
-		return (NULL);
-	new->first = NULL;
-	new->last = NULL;
-	new->size = 0;
-	return (new);
+	if (x->size > 1)
+	{
+		tmp = x->first;
+		x->first = tmp->next;
+		x->first->prev = NULL;
+		x->last->next = tmp;
+		tmp->prev = x->last;
+		tmp->next = NULL;
+		x->last = tmp;
+	}
 }
 
-void	stack_print(t_stack *s)
+void		rota_a(t_stack *a)
 {
-	t_elem	*tmp;
+	rota(a);
+}
 
-	tmp = s->first;
-	while (tmp != NULL)
-	{
-		ft_putnbr(tmp->value);
-		tmp = tmp->next;
-		ft_putchar('\n');
-	}
+void		rota_b(t_stack *b)
+{
+	rota(b);
+}
+
+void		rota_r(t_stack *a, t_stack *b)
+{
+	rota(a);
+	rota(b);
 }

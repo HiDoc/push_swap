@@ -1,49 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmadura <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/22 13:05:06 by fmadura           #+#    #+#             */
-/*   Updated: 2018/01/08 15:25:19 by fmadura          ###   ########.fr       */
+/*   Created: 2018/01/15 14:55:47 by fmadura           #+#    #+#             */
+/*   Updated: 2018/01/15 15:51:13 by fmadura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(t_stack *x)
+int 	is_sorted(t_stack *s)
 {
-	t_elem	*first;
-	t_elem	*second;
+	t_elem *start;
 
-	first = NULL;
-	second = NULL;
-	if (x->size > 2)
+	start = s->first;
+	while (start)
 	{
-		first = x->first;
-		second = first->next;
-		second->next->prev = first;
-		first->next = second->next;
-		first->prev = second;
-		second->next = first;
-		second->prev = NULL;
-		x->first = second;
+		if (start->next && start->value > start->next->value)
+			return (0);
+		start = start->next;	
 	}
+	return (1);
 }
 
-void		swap_a(t_stack *a)
+int		cmp_elem(t_elem *e1, t_elem *e2)
 {
-	swap(a);
-}
-
-void		swap_b(t_stack *b)
-{
-	swap(b);
-}
-
-void		swap_s(t_stack *a, t_stack *b)
-{
-	swap(a);
-	swap(b);
+	if (e1 == NULL || e2 == NULL)
+		return (0);
+	return (e1->value > e2->value ? 1 : -1);
 }
